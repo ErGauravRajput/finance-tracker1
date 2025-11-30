@@ -26,12 +26,12 @@ const seed = async () => {
     // 4. Create Dummy Transactions for "Regular User"
     const userId = users[1].id; // The Regular User
     const transactions = [
-      { type: "income", category: "Salary", amount: 50000, date: "2023-10-01", UserId: userId },
-      { type: "expense", category: "Rent", amount: 15000, date: "2023-10-05", UserId: userId },
-      { type: "expense", category: "Groceries", amount: 4500, date: "2023-10-10", UserId: userId },
-      { type: "expense", category: "Utilities", amount: 2000, date: "2023-10-15", UserId: userId },
-      { type: "income", category: "Freelance", amount: 12000, date: "2023-10-20", UserId: userId },
-      { type: "expense", category: "Entertainment", amount: 3000, date: "2023-10-25", UserId: userId },
+      { type: "income", category: "Salary", amount: 50000, date: "2025-10-01", UserId: userId },
+      { type: "expense", category: "Rent", amount: 15000, date: "2025-09-05", UserId: userId },
+      { type: "expense", category: "Groceries", amount: 4500, date: "2025-08-10", UserId: userId },
+      { type: "expense", category: "Utilities", amount: 2000, date: "2025-07-15", UserId: userId },
+      { type: "income", category: "Freelance", amount: 12000, date: "2025-05-20", UserId: userId },
+      { type: "expense", category: "Entertainment", amount: 3000, date: "2025-04-25", UserId: userId },
     ];
 
     await Transaction.bulkCreate(transactions);

@@ -5,6 +5,8 @@ info:
   description: API documentation for the Finance Tracker application
 servers:
   - url: http://localhost:5000/api
+  - url: https://finance-tracker1-idlb.onrender.com/api
+    description: Production Server
 components:
   securitySchemes:
     bearerAuth:
