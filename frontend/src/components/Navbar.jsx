@@ -29,7 +29,7 @@ const Navbar = () => {
 
       <div className="nav-right">
         <button onClick={toggleTheme} className="btn-secondary">
-          {theme === "light" ? "🌙" : "Qs"}
+          {theme === "light" ? "🌙" : "☀️"}
         </button>
 
         {isAuthenticated ? (
