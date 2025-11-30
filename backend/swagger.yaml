@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: Finance Tracker API
+  version: 1.0.0
+  description: API documentation for the Finance Tracker application
+servers:
+  - url: http://localhost:5000/api
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                email: { type: string }
+                password: { type: string }
+      responses:
+        201:
+          description: Created
+  /auth/login:
+    post:
+      summary: Login user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        200:
+          description: Successful login
+  /transactions:
+    get:
+      summary: Get all transactions (paginated)
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Success
+    post:
+      summary: Create transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type: { type: string, enum: [income, expense] }
+                category: { type: string }
+                amount: { type: number }
+                date: { type: string, format: date }
+      responses:
+        201:
+          description: Created
+  /transactions/{id}:
+    put:
+      summary: Update transaction
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount: { type: number }
+                category: { type: string }
+      responses:
+        200:
+          description: Updated
+    delete:
+      summary: Delete transaction
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Deleted
+  /analytics:
+    get:
+      summary: Get financial analytics
+      responses:
+        200:
+          description: Success
+  /users:
+    get:
+      summary: Get all users (Admin only)
+      responses:
+        200:
+          description: Success
