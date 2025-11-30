@@ -44,7 +44,9 @@ const IncomeExpenseBar = ({ income, expense }) => {
           <XAxis dataKey="name" stroke="#555" />
           <YAxis stroke="#555" />
 
+          {/* 🟢 UPDATE: Added cursor={false} to remove the hover background */}
           <Tooltip
+            cursor={false} 
             contentStyle={{
               background: isDark ? "#161b22" : "#fff",
               color: isDark ? "#f8fafc" : "#0f172a",
