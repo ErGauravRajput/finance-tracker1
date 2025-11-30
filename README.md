@@ -57,4 +57,65 @@ Follow these steps to run the application locally.
 - **Node.js** (v16+ recommended)
 - **PostgreSQL** installed and running locally.
 - Create a database named `finance_tracker`.
+  ### **2. Backend Setup**
+```bash
+cd backend
+npm install
+
+# Create .env file
+# PORT
+# DATABASE_URL
+# JWT_SECRET
+
+# Seed Database (Creates tables & demo users)
+npm run seed
+
+# Start Server
+npm run dev
+```
+
+### **3. Frontend Setup**
+```bash
+
+
+cd frontend
+npm install
+
+# Create .env file
+# VITE_API_URL
+
+# Start React App
+npm run dev
+```
+---
+### 📚 API Documentation
+- Complete API documentation is available via Swagger UI.
+  - Local: http://localhost:5000/api-docs
+  - Live: https://finance-tracker1-idlb.onrender.com/api-docs
+---
+### 📁 Project Structure
+```
+finance-tracker/
+├── backend/
+│   ├── config/         # Database configuration
+│   ├── controllers/    # Logic (Auth, Transactions, Analytics, Users)
+│   ├── middleware/     # Auth & Role middleware
+│   ├── models/         # Sequelize Models (User, Transaction)
+│   ├── routes/         # API Routes
+│   ├── utils/          # Token generation helpers
+│   ├── seed.js         # Database seeder
+│   └── server.js       # Entry point
+│
+└── frontend/
+    ├── src/
+    │   ├── api/        # Axios API setup
+    │   ├── charts/     # Recharts components
+    │   ├── components/ # Navbar, ProtectedRoute
+    │   ├── context/    # Auth & Theme Context
+    │   ├── pages/      # Login, Dashboard, Transactions, Analytics, Users
+    │   └── styles/     # Global Glassmorphism CSS
+    └── main.jsx        # Entry point
+```
+
+---
 
