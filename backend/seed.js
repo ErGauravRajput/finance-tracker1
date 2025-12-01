@@ -37,6 +37,17 @@ const seed = async () => {
     await Transaction.bulkCreate(transactions);
     console.log("✅ Dummy transactions added");
 
+    // 🟢 5. NEW: Create Dummy Transactions for "Viewer User"
+    const viewerId = users[2].id;
+    const viewerTransactions = [
+      { type: "income", category: "Investments", amount: 80000, date: "2025-10-02", UserId: viewerId },
+      { type: "expense", category: "Travel", amount: 25000, date: "2025-09-08", UserId: viewerId },
+      { type: "expense", category: "Food", amount: 6000, date: "2025-08-12", UserId: viewerId },
+      { type: "income", category: "Bonus", amount: 15000, date: "2025-07-28", UserId: viewerId },
+    ];
+    await Transaction.bulkCreate(viewerTransactions);
+    console.log("✅ Transactions added for Viewer User");
+
     console.log("\n🎉 Seeding Complete! Use these credentials:");
     console.log("------------------------------------------------");
     console.log("Admin:    admin@example.com   / password123");
